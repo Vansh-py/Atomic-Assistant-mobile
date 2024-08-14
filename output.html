@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Search Result</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <h1>Element Information</h1>
+            <div id="element-info" role="region" aria-live="polite"></div>
+        </main>
+    </div>
+
+    <script>
+        async function fetchElements() {
+            try {
+                const response = await fetch('elements.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const elements = await response.json();
+                return elements;
+            } catch (error) {
+                console.error('Failed to fetch elements:', error);
+                return null;
+            }
+        }
+
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                type: params.get('type'),
+                input: params.get('input')
+            };
+        }
+
+        function displayElementInfo(type, input, elements) {
+            const infoDiv = document.getElementById('element-info');
+            if (!elements) {
+                infoDiv.innerHTML = '<p>Failed to load element data.</p>';
+                return;
+            }
+
+            let element;
+            const normalizedInput = input.trim().toLowerCase();
+
+            switch (type) {
+                case 'atomic-number':
+                    element = elements[normalizedInput];
+                    break;
+                case 'atomic-name':
+                    element = Object.values(elements).find(el => el.name.toLowerCase() === normalizedInput);
+                    break;
+                case 'atomic-symbol':
+                    element = Object.values(elements).find(el => el.symbol.toLowerCase() === normalizedInput);
+                    break;
+                case 'mass-number':
+                    element = Object.values(elements).find(el => el.mass.toString() === normalizedInput);
+                    break;
+                default:
+                    break;
+            }
+
+            if (element) {
+                infoDiv.innerHTML = `
+                    <div class="element-card">
+                        <p><strong>Name:</strong> ${element.name}</p>
+                        <p><strong>Symbol:</strong> ${element.symbol}</p>
+                        <p><strong>Atomic Number:</strong> ${element.atomic_number}</p>
+                        <p><strong>Mass:</strong> ${element.mass}</p>
+                        <p><strong>Valency:</strong> ${element.valency}</p>
+                        <p><strong>Electron Configuration:</strong> ${element.electron_configuration}</p>
+                        <p><strong>Melting Point:</strong> ${element.melting_point} K</p>
+                        <p><strong>Boiling Point:</strong> ${element.boiling_point} K</p>
+                        <p><strong>Discovered By:</strong> ${element.discovered_by}</p>
+                        <p><strong>Discovery Year:</strong> ${element.discovery_year}</p>
+                    </div>
+                `;
+            } else {
+                infoDiv.innerHTML = `<p>No element found for the given input.</p>`;
+            }
+        }
+
+        async function init() {
+            const elements = await fetchElements();
+            const queryParams = getQueryParams();
+            displayElementInfo(queryParams.type, queryParams.input, elements);
+        }
+
+        init();
+    </script>
+</body>
+</html>

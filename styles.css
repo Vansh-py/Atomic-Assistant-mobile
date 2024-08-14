@@ -1,0 +1,153 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #87A7B3;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+header nav ul li a:hover {
+    color: #FF4500;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #CDC7BE;
+    padding: 0.5em 0;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li.home-icon {
+    margin-right: auto;
+}
+
+header nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 1em;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.search-container {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#search-input {
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 300px;
+}
+
+#search-type {
+    padding: 0.5em;
+    margin: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button {
+    padding: 0.5em 1em;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    #search-input {
+        width: 100%;
+        margin: 0.5em 0;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    button {
+        margin: 0.5em 0;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 5px 0;
+    }
+
+    header nav ul li.home-icon {
+        margin: 0;
+    }
+
+    header nav ul li a {
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atom Simulation</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Atom Simulation</h1>
+        <button id="changeAtomButton">Change Atom</button>
+        <button id="showInfoButton">Show Info</button>
+        <button id="zoomInButton">Zoom In</button>
+        <button id="zoomOutButton">Zoom Out</button>
+        <div class="canvas-container">
+            <canvas id="atomCanvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Modal Box for Show Info -->
+    <div id="modal">
+        <div id="modalContent">
+            <span id="closeModal">&times;</span>
+            <h2 id="elementName"></h2>
+            <p><strong>Symbol:</strong> <span id="elementSymbol"></span></p>
+            <p><strong>Atomic Number:</strong> <span id="elementAtomicNumber"></span></p>
+            <p><strong>Mass:</strong> <span id="elementMass"></span></p>
+            <p><strong>Valency:</strong> <span id="elementValency"></span></p>
+            <p><strong>Electron Configuration:</strong> <span id="elementElectronConfiguration"></span></p>
+            <p><strong>Melting Point:</strong> <span id="elementMeltingPoint"></span></p>
+            <p><strong>Boiling Point:</strong> <span id="elementBoilingPoint"></span></p>
+            <p><strong>Discovered By:</strong> <span id="elementDiscoveredBy"></span></p>
+            <p><strong>Discovery Year:</strong> <span id="elementDiscoveryYear"></span></p>
+        </div>
+    </div>
+
+    <!-- Modal Box for Change Atom -->
+    <div id="changeAtomModal">
+        <div id="changeAtomModalContent">
+            <span id="closeChangeAtomModal">&times;</span>
+            <h2>Change Atom</h2>
+            <label for="numElectrons">Number of Electrons:</label>
+            <input type="number" id="numElectrons" name="numElectrons" min="1" max="118" required>
+            <button id="changeAtom">Change</button>
+        </div>
+    </div>
+
+    <script src="script4.js"></script>
+</body>
+</html>

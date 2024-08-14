@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Search Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li class="home-icon"><a href="https://vansh-py.github.io/Atomic-Assistant-mobile/index.html">🏠︎</a></li>
+            </nav>
+        </header>
+        <main>
+            <h1>How To Use This Assistant</h1>
+            <p>Firstly You have to insert the given Atomic Name or Atomic Symbol or Atomic Number or Mass Number</p>
+            <p>Then this program will show the information about that element while entering input this should be noted that <br> the input you are entering and the same as the content selected in dropbox as if they are different it will not show you any information</p>
+            <span class="search-container">
+                <input type="text" id="search-input" placeholder="Enter Atomic Name, Symbol, Number, or Mass">
+                <select id="search-type">
+                    <option value="atomic-number">Atomic Number</option>
+                    <option value="atomic-name">Atomic Name</option>
+                    <option value="atomic-symbol">Atomic Symbol</option>
+                </select>
+                <button onclick="handleSearch()">Search</button>
+            </span>
+            <div id="result"></div>
+        </main>
+    </div>
+    <script>
+        function handleSearch() {
+            const input = document.getElementById('search-input').value;
+            const type = document.getElementById('search-type').value;
+            
+            let url;
+            if (type === 'atomic-number' || type === 'atomic-name' || type === 'atomic-symbol') {
+                url = `output.html?type=${type}&input=${input}`;
+                window.location.href = url;
+            } else {
+                console.error('Invalid search type:', type);
+            }
+        }
+    </script>
+</body>
+</html>

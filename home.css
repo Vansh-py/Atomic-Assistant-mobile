@@ -1,0 +1,70 @@
+body {
+    background-image: linear-gradient(to bottom right, #7aacb3, #4c6e81, #cf8da7, #aa5377, #3b5759);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    width: 90%; /* Ensures it doesn't overflow on smaller screens */
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: block;
+    width: 250px;
+    padding: 15px;
+    margin: 10px auto;
+    background-color: #005f73;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #003f4e;
+    transform: scale(1.05);
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .button {
+        width: 90%;
+        padding: 10px;
+    }
+}

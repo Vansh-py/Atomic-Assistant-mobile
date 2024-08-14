@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mole Concept Converter</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="links" style="text-align: left;"><a href="https://vansh-py.github.io/Atomic-Assistant-mobile/index.html">🏠︎</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Mole Concept Converter</h1>
+        <form id="converter-form">
+            <label for="atomic-mass">Atomic/Molecular Mass (g/mol):</label>
+            <input type="number" id="atomic-mass" step="0.01" required>
+
+            <label for="input-value">Input Value:</label>
+            <input type="number" id="input-value" step="0.01" required>
+
+            <label for="input-type">Input Type:</label>
+            <select id="input-type">
+                <option value="mole">Mole</option>
+                <option value="atoms">Atoms (x10^23)</option>
+                <option value="volume">Volume (L at STP/NTP)</option>
+                <option value="mass">Mass (g)</option>
+            </select>
+
+            <button type="button" onclick="convert()">Convert</button>
+        </form>
+        <p class="warning">Warning: For atoms, enter the value without 10^23. For example, enter 1 for 1 x 10^23 atoms.</p>
+    </div>
+
+    <div id="output-dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <p id="output"></p>
+        </div>
+    </div>
+
+
+
+    <script src="script3.js"></script>
+</body>
+</html>
